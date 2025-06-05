@@ -34,8 +34,9 @@ template<typename T> struct CRT {
 		T mod = 1, answer = 0;
 		for(auto [_, m] : congruences) mod *= m;
 		for(auto [a, m] : congruences) {
+			a = (a % m + m) % m;
 			T M = mod / m, N = inv(M, m);
-			answer = (answer + a * N % m * M % mod) % mod;
+			answer = (answer + a * N % mod * M % mod) % mod;
 		}
 		return answer;
 	}
