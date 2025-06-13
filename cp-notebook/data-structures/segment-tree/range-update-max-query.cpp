@@ -11,7 +11,7 @@ template<typename T> struct SegmentTree {
 	}
 
 	void apply(int id, T value) {
-		st[id]; += value;
+		st[id] += value;
 		lzy[id] += value;
 	}
 
